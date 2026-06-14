@@ -18,6 +18,7 @@ COPY . .
 RUN composer install --no-dev --optimize-autoloader
 
 # 6. Duplikat file .env & Generate Key Keamanan
+RUN cp .env.example .env
 RUN php artisan key:generate
 
 # 7. Beri Izin Akses
