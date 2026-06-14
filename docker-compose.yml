@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+  db_budi_absen12:
+    image: mariadb:10.11
+    container_name: db_hafizh_absen15
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: parkir
+    ports:
+      - "3306:3306"
+
+  app1_hafizh_absen15:
+    build: .
+    container_name: app1_hafizh_absen15
+    restart: always
+    ports:
+      - "8001:80"
+    depends_on:
+      - db_hafizh_absen15
+
+  app2_hafizh_absen15:
+    build: .
+    container_name: app2_hafizh_absen15
+    restart: always
+    ports:
+      - "8002:80"
+    depends_on:
+      - db_hafizh_absen15
+
+  app3_hafizh_absen15:
+    build: .
+    container_name: app3_hafizh_absen15
+    restart: always
+    ports:
+      - "8003:80"
+    depends_on:
+      - db_hafizh_absen15
